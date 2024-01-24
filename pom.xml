@@ -186,14 +186,9 @@
                         <artifactId>serenity-single-page-report</artifactId>
                         <version>${serenity.plugin.version}</version>
                     </dependency>
-                    <dependency>
-                        <groupId>net.serenity-bdd</groupId>
-                        <artifactId>serenity-navigator-report</artifactId>
-                        <version>${serenity.plugin.version}</version>
-                    </dependency>
                 </dependencies>
                 <configuration>
-                    <reports>single-page-html,navigator</reports>
+                    <reports>single-page-html</reports>
                 </configuration>
                 <executions>
                     <execution>

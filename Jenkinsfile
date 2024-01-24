@@ -28,19 +28,10 @@ pipeline {
                     allowMissing: true,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: 'target/site/serenity/navigator',
+                    reportDir: 'target/site/serenity',
                     reportFiles: 'serenity-summary.html',
                     reportName: "Tests Report (Summary)"
             ])
-            publishHTML (target: [
-                    allowMissing: true,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'target/site/serenity',
-                    reportFiles: 'index.html',
-                    reportName: "Tests Report (React Based)"
-            ])
-
             cleanWs()
         }
     }
