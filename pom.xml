@@ -122,12 +122,6 @@
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <configOptions>
                             </configOptions>
-
-                            <!--                            <configOptions>-->
-                            <!--                                <withXml>true</withXml>-->
-                            <!--                                <delegatePattern>true</delegatePattern>-->
-                            <!--                            </configOptions>-->
-
                         </configuration>
                     </execution>
                     <execution>
@@ -148,23 +142,23 @@
 
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M9</version>-->
-<!--                <configuration>-->
-<!--                    <excludes>-->
-<!--                        <include>**/tests/*.java</include>-->
-<!--                    </excludes>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M9</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/tests/**/*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0-M9</version>
                 <configuration>
                     <includes>
-                        <include>**/*.java</include>
+                        <include>**/tests/**/*.java</include>
                     </includes>
                 </configuration>
                 <executions>
