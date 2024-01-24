@@ -6,15 +6,14 @@ pipeline {
     stages {
         stage('Run REST tests') {
             steps {
-                withMaven(maven: 'maven-3') {
-                    sh 'mvn clean verify -U'
-                }
-                junit 'target/failsafe-reports/TEST-*.xml'
+                sh 'mvn clean verify -U'
             }
         }
     }
     post {
         always {
+            junit 'target/failsafe-reports/TEST-*.xml'
+
             publishHTML (target: [
                     allowMissing: true,
                     alwaysLinkToLastBuild: true,
