@@ -16,7 +16,6 @@ pipeline {
     post {
         always {
             junit '**/target/**/*.xml'
-            cl
         }
         publishHTML (target: [
                 allowMissing: true,
