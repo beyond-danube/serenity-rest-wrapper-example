@@ -16,30 +16,31 @@ pipeline {
     post {
         always {
             junit '**/target/**/*.xml'
+
+            publishHTML (target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/site/serenity',
+                    reportFiles: 'index.html',
+                    reportName: "Tests Report (Full)"
+            ])
+            publishHTML (target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/site/serenity',
+                    reportFiles: 'serenity-summary.html',
+                    reportName: "Tests Report (Summary)"
+            ])
+            publishHTML (target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/site/serenity',
+                    reportFiles: 'index.html',
+                    reportName: "Tests Report (React Based)"
+            ])
         }
-        publishHTML (target: [
-                allowMissing: true,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'target/site/serenity',
-                reportFiles: 'index.html',
-                reportName: "Tests Report (Full)"
-        ])
-        publishHTML (target: [
-                allowMissing: true,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'target/site/serenity',
-                reportFiles: 'serenity-summary.html',
-                reportName: "Tests Report (Summary)"
-        ])
-        publishHTML (target: [
-                allowMissing: true,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'target/site/serenity',
-                reportFiles: 'index.html',
-                reportName: "Tests Report (React Based)"
-        ])
     }
 }
