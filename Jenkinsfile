@@ -9,13 +9,12 @@ pipeline {
                 withMaven(maven: 'maven-3') {
                     sh 'mvn clean verify -U'
                 }
+                junit 'target/failsafe-reports/TEST-*.xml'
             }
         }
     }
     post {
         always {
-            junit 'target/failsafe-reports/TEST-*.xml'
-
             publishHTML (target: [
                     allowMissing: true,
                     alwaysLinkToLastBuild: true,
