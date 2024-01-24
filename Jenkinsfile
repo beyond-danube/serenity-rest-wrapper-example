@@ -14,7 +14,7 @@ pipeline {
     }
     post {
         always {
-            junit '**/target/**/*.xml'
+            junit 'target/failsafe-reports/TEST-*.xml'
 
             publishHTML (target: [
                     allowMissing: true,
