@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Run REST tests') {
             steps {
-                sh 'mvn clean verify -U'
+                withMaven(maven: 'maven-3') {
+                    sh 'mvn clean verify -U'
+                }
             }
         }
     }
