@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Run REST tests') {
             steps {
+                cleanWs()
                 withMaven(maven: 'maven-3') {
                     sh 'mvn clean verify -U'
                 }
@@ -15,6 +16,31 @@ pipeline {
     post {
         always {
             junit '**/target/**/*.xml'
+            cl
         }
+        publishHTML (target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'target/site/serenity',
+                reportFiles: 'index.html',
+                reportName: "Tests Report (Full)"
+        ])
+        publishHTML (target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'target/site/serenity',
+                reportFiles: 'serenity-summary.html',
+                reportName: "Tests Report (Summary)"
+        ])
+        publishHTML (target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'target/site/serenity',
+                reportFiles: 'index.html',
+                reportName: "Tests Report (React Based)"
+        ])
     }
 }
