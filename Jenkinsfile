@@ -40,6 +40,8 @@ pipeline {
                     reportFiles: 'index.html',
                     reportName: "Tests Report (React Based)"
             ])
+
+            cleanWs()
         }
     }
 }
