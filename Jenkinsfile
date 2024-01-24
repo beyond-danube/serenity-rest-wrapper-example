@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('Run REST tests') {
             steps {
-                cleanWs()
                 withMaven(maven: 'maven-3') {
                     sh 'mvn clean verify -U'
                 }
