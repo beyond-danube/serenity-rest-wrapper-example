@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Run REST tests') {
             steps {
-                sh 'MAVEN_OPTS= mvn clean verify -U'
+                sh 'mvn clean verify -U'
             }
         }
     }
