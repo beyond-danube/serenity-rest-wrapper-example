@@ -28,7 +28,7 @@ pipeline {
                     allowMissing: true,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: 'target/site/serenity',
+                    reportDir: 'target/site/serenity/navigator',
                     reportFiles: 'serenity-summary.html',
                     reportName: "Tests Report (Summary)"
             ])
